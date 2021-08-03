@@ -77,14 +77,15 @@ function init() {
 
   scene.add(group);
 
-  const loader = new TTFLoader();
-  // load font from assets folder
-  loader.load('assets/fonts/ttf/Raleway-Black.ttf', function (json) {
+  const loader = new THREE.FontLoader();
+  loader.load('assets/fonts/optimer_regular.typeface.json', function (response) {
 
-    font = new THREE.Font(json);
+    font = response;
     createText();
     createSmallText();
+
   });
+
 
   const plane = new THREE.Mesh(
     new THREE.PlaneGeometry(10000, 10000),
@@ -208,9 +209,7 @@ function createSmallText() {
 function createText() {
 
   textGeo = new THREE.TextGeometry(text, {
-
     font: font,
-
     size: size,
     height: height,
     curveSegments: curveSegments,
