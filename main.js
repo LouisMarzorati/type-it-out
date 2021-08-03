@@ -78,7 +78,7 @@ function init() {
   scene.add(group);
 
   const loader = new TTFLoader();
-
+  // load font from assets folder
   loader.load('assets/fonts/ttf/Raleway-Black.ttf', function (json) {
 
     font = new THREE.Font(json);
