@@ -79,7 +79,7 @@ function init() {
 
   const loader = new TTFLoader();
 
-  loader.load('./fonts/ttf/Raleway-Black.ttf', function (json) {
+  loader.load('assets/fonts/ttf/Raleway-Black.ttf', function (json) {
 
     font = new THREE.Font(json);
     createText();
