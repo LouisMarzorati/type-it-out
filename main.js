@@ -8,6 +8,7 @@ import {
 import {
   OrbitControls
 } from "three/examples/jsm/controls/OrbitControls";
+import typefaceData from "@compai/font-recursive/data/typefaces/normal-400.json";
 
 let container;
 let camera, cameraTarget, scene, renderer;
@@ -77,15 +78,9 @@ function init() {
 
   scene.add(group);
 
-  const loader = new THREE.FontLoader();
-  loader.load('assets/fonts/optimer_regular.typeface.json', function (response) {
-
-    font = response;
-    createText();
-    createSmallText();
-
-  });
-
+  font = new THREE.FontLoader().parse(typefaceData);
+  createText();
+  createSmallText();
 
   const plane = new THREE.Mesh(
     new THREE.PlaneGeometry(10000, 10000),
