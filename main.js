@@ -34,14 +34,16 @@ let pointerX = 0;
 let pointerXOnPointerDown = 0;
 
 let windowHalfX = window.innerWidth / 2;
+let input;
 
 init();
 animate();
 
 function init() {
-
+  // init dom elements
   container = document.createElement('div');
   document.body.appendChild(container);
+  input = document.getElementById('text-input');
 
   // CAMERA
 
@@ -136,8 +138,9 @@ function onDocumentKeyDown(event) {
   if (firstLetter) {
 
     firstLetter = false;
-    text = '';
-    textSmall = '';
+    input.value = ''
+    text = input.value;
+
   }
 
   const keyCode = event.keyCode;
@@ -147,8 +150,8 @@ function onDocumentKeyDown(event) {
   if (keyCode === 8) {
 
     event.preventDefault();
-
-    text = text.substring(0, text.length - 1);
+    input.value = text.substring(0, text.length - 1);
+    text = input.value;
     refreshText();
 
     return false;
